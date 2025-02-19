@@ -26,6 +26,7 @@ func main() {
 	http.HandleFunc("/tasks", taskHandler.GetAllTasks)
 	http.HandleFunc("/tasks/create", taskHandler.CreateTask)
 	http.HandleFunc("/tasks/delete/", taskHandler.DeleteTask)
+	http.HandleFunc("/tasks/update/", taskHandler.UpdateTask)
 
 	log.Println("Server running on port 8080...")
 	log.Fatal(http.ListenAndServe(":8080", nil))

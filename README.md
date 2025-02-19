@@ -43,7 +43,7 @@ go run main.go
 ```
 
 ---
-## 🛠 ** API Endpoints**
+## 🛠 **API Endpoints**
 
 ### **1. User Registration**
 ```sh
@@ -67,5 +67,73 @@ POST /login
 {
     "username": "testuser",
     "password": "securepassword"
+}
+```
+
+### **3. Create Task**
+```sh
+POST /tasks/create
+```
+
+```json
+{
+    "title": "News Task",
+    "parent_id": null,
+    "user_id": 1
+}
+```
+
+### **4. Get All Task**
+```sh
+GET /tasks
+```
+
+Response: 
+```json
+[
+    {
+        "id": 3,
+        "title": "Third Task",
+        "user_id": 1,
+        "status": false,
+        "is_delete": false,
+        "created_at": "2025-02-19T09:14:20Z",
+        "updated_at": "2025-02-19T09:14:20Z"
+    }
+}
+```
+
+### **5. Soft Delete Task**
+```sh
+DELETE /tasks/delete/3
+```
+
+Response: 
+```json
+{
+    "message": "Task successfully deleted"
+}
+```
+
+### **6. Update Task**
+```sh
+PUT /tasks/update/4
+```
+
+Request: 
+```json
+{
+    {
+        "title": "Updated Task",
+        "parent_id": 2,
+        "is_delete": false
+    }
+}
+```
+
+Response: 
+```json
+{
+    "message": "Task updated successfully"
 }
 ```
